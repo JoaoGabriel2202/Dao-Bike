@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dão Bike - Sistema de Gestão</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo-area">
+      <div class="brand-mark" aria-hidden="true"><svg class="brand-bike" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="30" r="11"/><circle cx="50" cy="30" r="11"/><path d="M14 30 25 12 36 30H14L23 8M20 8h9M25 12h17M50 30 40 5h-7"/></g></svg></div>
+      <h1>DÃO BIKE</h1>
+      <p>Sistema de Gestão</p>
+    </div>
+
+    <nav class="menu">
+      <a class="active" href="#" data-page="dashboard">
+        <i class="fa-solid fa-house"></i> Dashboard
+      </a>
+
+      <a href="#" data-page="produtos">
+        <i class="fa-solid fa-box"></i> Produtos
+      </a>
+
+      <a href="#" data-page="estoque">
+        <i class="fa-solid fa-warehouse"></i> Estoque
+      </a>
+
+      <a href="#" data-page="vendas">
+        <i class="fa-solid fa-cart-shopping"></i> Vendas
+      </a>
+
+      <a href="#" data-page="servicos">
+        <i class="fa-solid fa-screwdriver-wrench"></i> Serviços / Consertos
+      </a>
+
+      <a href="#" data-page="clientes">
+        <i class="fa-solid fa-users"></i> Clientes
+      </a>
+
+      <a href="#" data-page="relatorios">
+        <i class="fa-solid fa-chart-column"></i> Relatórios
+      </a>
+
+      <a href="#" data-page="financeiro">
+        <i class="fa-solid fa-money-bill-wave"></i> Financeiro
+      </a>
+
+      <a href="#" data-page="configuracoes">
+        <i class="fa-solid fa-gear"></i> Configurações
+      </a>
+    </nav>
+
+    <div class="logout">
+      <span class="local-note">● Dados salvos neste navegador</span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <h2>Visão geral</h2>
+        <p>Controle geral da loja Dão Bike</p>
+      </div>
+
+      <div class="admin">
+        <span class="store-status">● Loja conectada</span><span class="avatar" aria-hidden="true">AD</span>
+        <span>Administrador</span>
+      </div>
+    </header>
+
+    <section class="welcome"><div><span class="eyebrow">SUA LOJA, EM MOVIMENTO</span><h2>Um novo dia para ir mais longe.</h2><p>Acompanhe as vendas, cuide das bikes e mantenha tudo em dia.</p></div><a href="#vendas" class="primary-action" data-shortcut="vendas">+ Registrar venda</a></section>
+    <section class="cards">
+      <div class="card">
+        <div class="icon blue">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <div>
+          <span>Vendas do mês</span>
+          <h3>R$ 24.680,50</h3>
+          <p class="green">Vendas registradas no mês</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon green-bg">
+          <i class="fa-solid fa-sack-dollar"></i>
+        </div>
+
+        <div>
+          <span>Lucro bruto do mês</span>
+          <h3>R$ 8.752,30</h3>
+          <p class="green">Margem bruta das vendas</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon purple">
+          <i class="fa-solid fa-cube"></i>
+        </div>
+
+        <div>
+          <span>Produtos em estoque</span>
+          <h3>248</h3>
+          <p>Unidades disponíveis para venda</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon orange">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+
+        <div>
+          <span>Serviços em andamento</span>
+          <h3>7</h3>
+          <p>Ordens de serviço abertas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="box">
+        <h3>Vendas por mês</h3>
+        <canvas id="vendasChart"></canvas>
+      </div>
+
+      <div class="box">
+        <h3>Lucro bruto por mês</h3>
+        <canvas id="lucroChart"></canvas>
+      </div>
+
+      <div class="box">
+        <h3>Produtos mais vendidos</h3>
+        <canvas id="produtosChart"></canvas>
+      </div>
+    </section>
+
+    <section class="tables">
+      <div class="table-box">
+        <h3>Estoque baixo</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Categoria</th>
+              <th>Qtd</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Pneu 29x2.10</td>
+              <td>Pneus</td>
+              <td class="red">3</td>
+            </tr>
+
+            <tr>
+              <td>Câmara de Ar 29</td>
+              <td>Câmaras</td>
+              <td class="red">4</td>
+            </tr>
+
+            <tr>
+              <td>Corrente 12v</td>
+              <td>Transmissão</td>
+              <td class="red">2</td>
+            </tr>
+
+            <tr>
+              <td>Pastilha de Freio</td>
+              <td>Freios</td>
+              <td class="red">5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-box">
+        <h3>Últimas vendas</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Valor</th>
+              <th>Pagamento</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>João da Silva</td>
+              <td>R$ 850,00</td>
+              <td><span class="badge pix">PIX</span></td>
+            </tr>
+
+            <tr>
+              <td>Maria Oliveira</td>
+              <td>R$ 420,00</td>
+              <td><span class="badge card-pay">Cartão</span></td>
+            </tr>
+
+            <tr>
+              <td>Carlos Santos</td>
+              <td>R$ 1.250,00</td>
+              <td><span class="badge card-pay">Cartão</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-box">
+        <h3>Últimos serviços</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Serviço</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>João da Silva</td>
+              <td>Revisão completa</td>
+              <td><span class="badge progress">Em andamento</span></td>
+            </tr>
+
+            <tr>
+              <td>Maria Oliveira</td>
+              <td>Central de direção</td>
+              <td><span class="badge done">Finalizado</span></td>
+            </tr>
+
+            <tr>
+              <td>Pedro Alves</td>
+              <td>Troca de corrente</td>
+              <td><span class="badge done">Finalizado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pagina-extra"></section>
+
+    <footer>
+      © 2026 Dão Bike - Vitória de Santo Antão/PE - (81) 98640-4445
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
